@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {item} from '../listitem';
+import {Item} from '../listitem';
 import { ListManagerService} from '../list-manager.service';
 import { DisplayComponentComponent } from '../display-component/display-component.component';
 

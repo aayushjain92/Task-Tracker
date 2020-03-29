@@ -1,6 +1,6 @@
-import {item} from './listitem';
+import {Item} from './listitem';
 
-export const initItems: item[] = [
+export const initItems: Item[] = [
     {id:1, value: 'get groceries', status: true},
     {id:2, value: 'do laundry', status: true},
     {id:3, value: 'pay electricity bills', status: false},

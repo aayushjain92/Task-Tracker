@@ -1,6 +1,6 @@
 import { Time } from '@angular/common';
 
-export class item{
+export class Item{
     id: number;
     value: String;
     status: boolean;

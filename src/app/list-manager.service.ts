@@ -2,22 +2,22 @@ import { Injectable, Output, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs';
 import { of } from 'rxjs';
 
-import {item} from './listitem';
+import {Item} from './listitem';
 import {initItems} from './initial-list';
 
 
 @Injectable()
 export class ListManagerService {
 
-  list: item[];
+  list: Item[];
 
-  @Output() newItem: EventEmitter<item> = new EventEmitter();
+  @Output() newItem: EventEmitter<Item> = new EventEmitter();
 
   constructor() {
     this.list = initItems;
    }
 
-  getList():Observable<item[]> {
+  getList():Observable<Item[]> {
     this.sortItems();
     this.updateIds();
     return of(initItems);
@@ -25,7 +25,7 @@ export class ListManagerService {
 
   // addItem(item):Observable<boolean>{
     addItem(newvalue: String){
-    let  nitem: item = new item();
+    let  nitem: Item = new Item();
     nitem.value = newvalue;
     nitem.id = this.list.length;
     nitem.status = false;  
@@ -36,14 +36,14 @@ export class ListManagerService {
     // return of(true);
   }
 
-  removeItem(rmItem: item):Observable<boolean>{
+  removeItem(rmItem: Item):Observable<boolean>{
     this.list.splice(rmItem.id,1);
     this.sortItems();
     this.updateIds();
     return of(true);
   }
 
-  setList(upList: item[]): void{
+  setList(upList: Item[]): void{
     this.list = upList;
   }
 
@@ -61,7 +61,7 @@ export class ListManagerService {
     }
   }
 
-    changeStat(dItem: item): void{
+    changeStat(dItem: Item): void{
       dItem.status= !dItem.status;
       this.sortItems();
       this.updateIds();

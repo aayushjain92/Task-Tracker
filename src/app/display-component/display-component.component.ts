@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {item} from '../listitem';
+import {Item} from '../listitem';
 import {ListManagerService} from '../list-manager.service';
 
 @Component({
@@ -9,7 +9,7 @@ import {ListManagerService} from '../list-manager.service';
 })
 export class DisplayComponentComponent implements OnInit {
 
-  listItems : item[];
+  listItems : Item[];
 
   constructor(private listManage: ListManagerService) { }
 
@@ -27,7 +27,7 @@ export class DisplayComponentComponent implements OnInit {
     // this.updateIds();
   }
 
-  done(dItem: item): void{
+  done(dItem: Item): void{
       // dItem.status= !dItem.status;
       this.listManage.changeStat(dItem);
       // this.sortItems();
@@ -40,7 +40,7 @@ export class DisplayComponentComponent implements OnInit {
     // this.updateIds();
   }
 
-  remove(rmItem:item): void{
+  remove(rmItem:Item): void{
       this.listManage.removeItem(rmItem);
       // .subscribe(data => {if(data === true){this.updateIds(); }}
   // );
