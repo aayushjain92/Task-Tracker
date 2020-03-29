@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeadComponentComponent implements OnInit {
 
+  title = 'ToDo application'
+
   constructor() { }
 
   ngOnInit(): void {
