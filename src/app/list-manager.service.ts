@@ -1,70 +1,29 @@
-import { Injectable, Output, EventEmitter } from '@angular/core';
-import { Observable } from 'rxjs';
-import { of } from 'rxjs';
-
+import { Injectable } from '@angular/core'
+import { Observable } from 'rxjs'
+import { HttpClient } from '@angular/common/http'
 import {Item} from './listitem';
-import {initItems} from './initial-list';
-
 
 @Injectable()
 export class ListManagerService {
-
-  list: Item[];
-
-  @Output() newItem: EventEmitter<Item> = new EventEmitter();
-
-  constructor() {
-    this.list = initItems;
-   }
+  constructor(private http: HttpClient) {}
 
   getList():Observable<Item[]> {
-    this.sortItems();
-    this.updateIds();
-    return of(initItems);
+    return this.http.get<Item[]>('http://localhost:6800/todolist')
   }
 
-  // addItem(item):Observable<boolean>{
-    addItem(newvalue: String){
-    let  nitem: Item = new Item();
-    nitem.value = newvalue;
-    nitem.id = this.list.length;
-    nitem.status = false;  
-    this.list.push(nitem);
-     this.sortItems();
-    this.updateIds();
-    // this.newItem.emit(nitem);
-    // return of(true);
+  getItem(id: string): Observable<Item> {
+    return this.http.get<Item>('http://localhost:6800/todolist/' + id)
   }
 
-  removeItem(rmItem: Item):Observable<boolean>{
-    this.list.splice(rmItem.id,1);
-    this.sortItems();
-    this.updateIds();
-    return of(true);
+  addItem(item: Item): Observable<Item> {
+    return this.http.post<Item>('http://localhost:8000/api/todolist/', item)
   }
 
-  setList(upList: Item[]): void{
-    this.list = upList;
+  updateCat(item: Item): Observable<void> {
+    return this.http.put<void>('http://localhost:6800/todolist/' + item.id, item)
   }
 
-  sortItems():void{
-    this.list.sort(function(x,y){return Number(y.status)-Number(x.status);});
-    this.list.reverse();
-    // this.updateIds();
+  removeItem(id: string) {
+    return this.http.delete('http://localhost:6800/todolist/' + id)
   }
-
-  updateIds():void{
-    // var eachItem : item;
-    var x;
-    for(x in this.list){
-      this.list[x].id = x;
-    }
-  }
-
-    changeStat(dItem: Item): void{
-      dItem.status= !dItem.status;
-      this.sortItems();
-      this.updateIds();
-    }
-  }
-
+}

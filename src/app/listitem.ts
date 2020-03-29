@@ -1,10 +1,9 @@
-import { Time } from '@angular/common';
-
 export class Item{
-    id: number;
-    value: String;
-    status: boolean;
+    id: String;
+    title: String;
+    description: String;
+    createdDate: Date;
+    modifiedDate: Date;
     
-
     constructor(){}
 }
