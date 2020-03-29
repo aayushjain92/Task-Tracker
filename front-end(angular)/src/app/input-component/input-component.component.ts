@@ -18,7 +18,7 @@ export class InputComponentComponent implements OnInit {
   add(name: string): void {
     name = name.trim();
     if (!name) { return; }
-    this.listManage.addItem(name);
+    //this.listManage.addItem(name);
     // var ip = document.getElementById('item');
 }
 

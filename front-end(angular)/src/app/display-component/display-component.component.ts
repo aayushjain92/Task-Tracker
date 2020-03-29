@@ -29,19 +29,19 @@ export class DisplayComponentComponent implements OnInit {
 
   done(dItem: Item): void{
       // dItem.status= !dItem.status;
-      this.listManage.changeStat(dItem);
+      //this.listManage.changeStat(dItem);
       // this.sortItems();
       // this.updateIds();
   }
 
   sortItems():void{
-    this.listItems.sort(function(x,y){return Number(y.status)-Number(x.status);});
-    this.listItems.reverse();
+    //this.listItems.sort(function(x,y){return Number(y.status)-Number(x.status);});
+    //this.listItems.reverse();
     // this.updateIds();
   }
 
   remove(rmItem:Item): void{
-      this.listManage.removeItem(rmItem);
+      //this.listManage.removeItem(rmItem);
       // .subscribe(data => {if(data === true){this.updateIds(); }}
   // );
       // this.sortItems();
@@ -55,7 +55,7 @@ export class DisplayComponentComponent implements OnInit {
       this.listItems[x].id = x;
     }
     // this.sortItems();
-    this.listManage.setList(this.listItems);
+    //this.listManage.setList(this.listItems);
   }
 
 }

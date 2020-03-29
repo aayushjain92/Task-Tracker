@@ -1,0 +1,25 @@
+{
+  "name": "my_package",
+  "version": "1.0.0",
+  "description": "ToDo Application",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/neu-mis-info6150-spring-2020/assignment-7-aayushjain92.git"
+  },
+  "author": "aayush",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/neu-mis-info6150-spring-2020/assignment-7-aayushjain92/issues"
+  },
+  "homepage": "https://github.com/neu-mis-info6150-spring-2020/assignment-7-aayushjain92#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.5",
+    "node-restful": "^0.2.6"
+  }
+}
