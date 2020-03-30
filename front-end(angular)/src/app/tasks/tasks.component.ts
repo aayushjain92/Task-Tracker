@@ -34,6 +34,7 @@ export class TasksComponent implements OnInit {
     time= time.trim();
     completed = completed.trim();
     if (!title) {
+      alert("Todo Name can't be blank!");
       return;
     }
     const newTask: Todo = { title, description, dueDate, time, completed } as Todo
