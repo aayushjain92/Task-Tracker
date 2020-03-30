@@ -33,7 +33,7 @@ export class TasksComponent implements OnInit {
     dueDate= dueDate.trim();
     time= time.trim();
     completed = completed.trim();
-    if (!title || !description || !dueDate || !time || !completed) {
+    if (!title) {
       return;
     }
     const newTask: Todo = { title, description, dueDate, time, completed } as Todo
@@ -46,7 +46,9 @@ export class TasksComponent implements OnInit {
   update() {
     console.log(this.editTodo);
     if (this.editTodo) {
-      this.taskService.updateTask(this.editTodo).subscribe(todo => {
+        delete this.editTodo['createdDate'];
+        delete this.editTodo['modifiedDate'];
+        this.taskService.updateTask(this.editTodo).subscribe(todo => {
         const indexx = todo ? this.todos.findIndex(t => t._id === todo._id) : -1
         if (indexx > -1) {
           this.todos[indexx] = todo

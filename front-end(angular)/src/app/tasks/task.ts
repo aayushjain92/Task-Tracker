@@ -5,4 +5,6 @@ export class Todo {
   dueDate? : String
   time?: String
   completed?: String
+  createdDate?: Date
+  modifiedDate?: Date
 }
