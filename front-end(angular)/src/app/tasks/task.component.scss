@@ -2,11 +2,7 @@
   display: inline-block;
   margin-right: 1em;
 }
-.table_todo{
-  width: 55em;
-  position: relative;
-  margin-left: 3em;
-}
+
 .header_section{
   display: inline-block;
   margin-right: 5em;
@@ -17,20 +13,41 @@
 .input_editoption{
   width:6em;
 }
+
+.input_time{
+width:15em;
+}
+
 .dataholder{
   position: relative;
   top: 2em;
 }
 .btn_sty{
-  left: 5em;
   position: relative;
   margin-left: 1em;
 }
-.table_rowStyle{
-  border-bottom: 1px solid gray;
-  height: 3em;
+
+
+.table_todo {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
 }
-.title_headerr{
-  font-size: large;
-  font-weight: bold;
+
+.table_todo td, .table_todo th {
+  border: 1px solid #ddd;
+  padding: 8px;
 }
+
+.table_todo tr:nth-child(even){background-color: #f2f2f2;}
+
+.table_todo tr:hover {background-color: #ddd;}
+
+.table_todo th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: rgb(81, 162, 194);
+  color: white;
+}
+

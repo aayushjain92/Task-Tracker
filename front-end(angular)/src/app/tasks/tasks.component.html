@@ -1,16 +1,14 @@
-<form class="form" (submit)="add(todoTitle.value,todoDescription.value,tododueDate.value,todotime.value,todocompleted.value); 
+<form class="form" (submit)="add(todoTitle.value,todoDescription.value,tododueDate.value); 
   todoTitle.value='';
   todoDescription.value='';
   tododueDate.value='';
-  todotime.value='';
-  todocompleted.value=''">
+  ">
   <div class="">
     <span>
-      <input #todoTitle class="inputSection" placeholder="Todo Name" />
-      <input #todoDescription class="inputSection" placeholder="Todo description" />
-      <input #tododueDate class="inputSection" placeholder="Todo dueDate" />
-      <input #todotime class="inputSection" placeholder="Todo time" />
-      <input #todocompleted class="inputSection" placeholder="Todo completed " />
+      <input #todoTitle class="inputSection" placeholder="Title" />
+      <input #todoDescription class="inputSection" placeholder="Description" />
+      <label for="tododueDate">Due Date:</label>
+      <input #tododueDate class="inputSection input_time" type="datetime-local" name="mtime"/>
       <input type="submit" value="ADD" class="btnSubmit" />
     </span>
   </div>
@@ -18,13 +16,12 @@
 <div class="dataholder">
   <table class="table_todo">
     <tr>
-      <td class="title_todo title_headerr">Title</td>
-      <td class="title_todo title_headerr">Description</td>
-      <td class="title_todo title_headerr">Due Date</td>
-      <td class="title_todo title_headerr">Time</td>
-      <td class="title_todo title_headerr">Completed</td>
-      <td class="title_todo title_headerr">Created Date</td>
-      <td class="title_todo title_headerr">Last Modified Date</td>
+      <th class="title_todo title_headerr">Title</th>
+      <th class="title_todo title_headerr">Description</th>
+      <th class="title_todo title_headerr">Due Date</th>
+      <th class="title_todo title_headerr">Completed</th>
+      <th class="title_todo title_headerr">Created Date</th>
+      <th class="title_todo title_headerr">Last Modified Date</th>
         
     </tr>
     <tr class="table_rowStyle" *ngFor="let todo of todos">
@@ -41,37 +38,36 @@
             (keyup.enter)="update()">
         </a>
       </td>
+
       <td class="title_dueDate">
         <a (click)="edit(todo)">
           <span class="input_editoption" *ngIf="todo!==editTodo">{{todo.dueDate}}</span>
-          <input class="input_editoption" *ngIf="todo===editTodo" [(ngModel)]="todo.dueDate" (keyup.enter)="update()">
-        </a>
+          <input type="datetime-local" id="mtime" name="mtime" class="input_time" *ngIf="todo===editTodo" [(ngModel)]="todo.dueDate" (keyup.enter)="update()">
+        </a> 
       </td>
-      <td class="title_time">
-        <a (click)="edit(todo)">
-          <span class="input_editoption" *ngIf="todo!==editTodo">{{todo.time}}</span>
-          <input class="input_editoption" *ngIf="todo===editTodo" [(ngModel)]="todo.time" (keyup.enter)="update()">
-        </a>
-      </td>
+
+      
+
       <td class="title_completed">
         <a (click)="edit(todo)">
           <span class="input_editoption" *ngIf="todo!==editTodo">{{todo.completed}}</span>
-          <input class="input_editoption" *ngIf="todo===editTodo" [(ngModel)]="todo.completed" (keyup.enter)="update()">
+          <input type="checkbox" class="input_editoption" *ngIf="todo===editTodo" [(ngModel)]="todo.completed" ng-true-value="'YES'" ng-false-value="'NO'" (keyup.enter)="update()">
         </a>
       </td>
 
       <td>
-        <span class="input_editoption">{{todo.createdDate}}</span>
+        <span class="input_editoption">{{todo.createdDate | date:'medium'}}</span>
       </td>
 
       <td>
-        <span class="input_editoption">{{todo.modifiedDate}}</span>
+        <span class="input_editoption">{{todo.modifiedDate | date:'medium'}}</span>
       </td>
 
      
-      <td>
+      <td class = "button_col">
         <button class="btn_sty btnEdit" (click)="update()">Update</button>
         <button class="btn_sty btnDanger" title="delete todo" (click)="delete(todo)">Delete</button>
+        <button class="btn_sty" title="cancel todo" (click)="cancel()">Cancel</button>
       </td>
 
     </tr>

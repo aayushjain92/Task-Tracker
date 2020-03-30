@@ -16,7 +16,11 @@ export class TasksComponent implements OnInit {
   constructor(private taskService: TasksService) {}
 
   ngOnInit() {
-    this.getTasks()
+    this.getTasks();
+  }
+
+  cancel(){
+    this.getTasks();
   }
 
   getTasks(): void {
@@ -26,18 +30,16 @@ export class TasksComponent implements OnInit {
       })
     }
 
-  add(title: string,description: string, dueDate:string,time: string,completed:String): void {
+  add(title: string,description: string, dueDate:string): void {
     this.editTodo = undefined;
     title = title.trim();
     description = description.trim();
     dueDate= dueDate.trim();
-    time= time.trim();
-    completed = completed.trim();
     if (!title) {
-      alert("Todo Name can't be blank!");
+      alert("Title can't be blank!");
       return;
     }
-    const newTask: Todo = { title, description, dueDate, time, completed } as Todo
+    const newTask: Todo = { title, description, dueDate } as Todo
     this.taskService.addTask(newTask).subscribe(task => this.todos.push(task))
   }
   edit(todo) {
@@ -60,6 +62,7 @@ export class TasksComponent implements OnInit {
     else{
       alert("Click on any one of the Todo Item to edit and update.")
     }
+        
   }
   delete(todo: Todo): void {
 
