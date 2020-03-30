@@ -7,9 +7,11 @@ import { FormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { TasksComponent } from "./tasks/tasks.component";
 import { MessageService } from "./message.service";
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 @NgModule({
   declarations: [
-    AppComponent,TasksComponent
+    AppComponent,TasksComponent, HeaderComponent, FooterComponent
   ],
   exports:[
 
