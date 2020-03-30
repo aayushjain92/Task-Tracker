@@ -22,7 +22,10 @@
       <td class="title_todo title_headerr">Description</td>
       <td class="title_todo title_headerr">Due Date</td>
       <td class="title_todo title_headerr">Time</td>
-      <td class="title_todo title_headerr">Completed<td>
+      <td class="title_todo title_headerr">Completed</td>
+      <td class="title_todo title_headerr">Created Date</td>
+      <td class="title_todo title_headerr">Last Modified Date</td>
+        
     </tr>
     <tr class="table_rowStyle" *ngFor="let todo of todos">
       <td class="title_todo">
@@ -56,6 +59,16 @@
           <input class="input_editoption" *ngIf="todo===editTodo" [(ngModel)]="todo.completed" (keyup.enter)="update()">
         </a>
       </td>
+
+      <td>
+        <span class="input_editoption">{{todo.createdDate}}</span>
+      </td>
+
+      <td>
+        <span class="input_editoption">{{todo.modifiedDate}}</span>
+      </td>
+
+     
       <td>
         <button class="btn_sty btnEdit" (click)="update()">Update</button>
         <button class="btn_sty btnDanger" title="delete todo" (click)="delete(todo)">Delete</button>
