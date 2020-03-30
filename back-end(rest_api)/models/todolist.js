@@ -15,6 +15,15 @@ const TodolistSchema = new Schema({
     modifiedDate: { 
         type : Date, 
         default: Date.now
+    },
+    dueDate: {
+        type: String
+    },
+    time: {
+        type: String
+    },
+    completed: {
+        type: String
     }
 }, { versionKey: false });
 TodolistSchema.virtual('id').get(function(){

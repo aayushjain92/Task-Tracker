@@ -1,26 +1,26 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { DisplayComponentComponent } from './display-component/display-component.component';
-import { FootComponentComponent } from './foot-component/foot-component.component';
-import { HeadComponentComponent } from './head-component/head-component.component';
-import { InputComponentComponent } from './input-component/input-component.component';
-
+//import { HttpModule } from "@angular/http";
+import { FormsModule } from "@angular/forms";
+import { HttpClientModule } from "@angular/common/http";
+import { TasksComponent } from "./tasks/tasks.component";
+import { MessageService } from "./message.service";
 @NgModule({
   declarations: [
-    AppComponent,
-    DisplayComponentComponent,
-    FootComponentComponent,
-    HeadComponentComponent,
-    InputComponentComponent
+    AppComponent,TasksComponent
+  ],
+  exports:[
+
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
