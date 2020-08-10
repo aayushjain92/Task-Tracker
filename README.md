@@ -1,12 +1,6 @@
-# Assignment 8
+# Task Tracker
 
-**Problem Statement**
-
-The purpose of this assignment is to create a ToDo application.
-
-**Name and NUID**
-
-Aayush Jain, 001401616 
+A simple ToDo application
 
 **Technologies used**
 
